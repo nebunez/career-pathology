@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://64n7fn525aop"]
+[gd_scene load_steps=3 format=3 uid="uid://64n7fn525aop"]
 
 [ext_resource type="Theme" uid="uid://iy0q11075hte" path="res://main_theme.tres" id="1_lti8b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lti8b"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +12,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lti8b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_lti8b")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
