@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bc601k41n1fdr"]
+
+[ext_resource type="Texture2D" uid="uid://3jdu3kmd8ukd" path="res://world/clouds/Cloud_SpriteSheet.png" id="1_klfgo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsxux"]
+atlas = ExtResource("1_klfgo")
+region = Rect2(0, 0, 512, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cybkm"]
+atlas = ExtResource("1_klfgo")
+region = Rect2(512, 0, 512, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yav1"]
+atlas = ExtResource("1_klfgo")
+region = Rect2(1024, 0, 512, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcil2"]
+atlas = ExtResource("1_klfgo")
+region = Rect2(1536, 0, 512, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otarp"]
+atlas = ExtResource("1_klfgo")
+region = Rect2(2048, 0, 512, 150)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsxux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cybkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yav1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcil2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otarp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

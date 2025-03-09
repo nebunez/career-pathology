@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://y3nt7rkicyxb"]
+
+[ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://cloud.tscn" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://cn4mji4y7tut6" path="res://world/mover.gd" id="2_vonw3"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="Cloud" parent="Clouds" instance=ExtResource("1_u52ul")]
+position = Vector2(633, 336)
+
+[node name="Mover" type="Node2D" parent="Clouds/Cloud"]
+script = ExtResource("2_vonw3")
+move_behaviour = 2
+initial_position = 2
+move_range = 100.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://cn4mji4y7tut6"
