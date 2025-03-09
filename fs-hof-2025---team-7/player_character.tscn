@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cl481xfr2k7gu" path="res://player_character.gd" id="1_5up26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5up26"]
+friction = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5up26"]
 radius = 48.0
