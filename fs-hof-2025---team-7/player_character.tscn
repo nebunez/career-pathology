@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://d26acnrtv8nu7"]
+[gd_scene load_steps=5 format=3 uid="uid://d26acnrtv8nu7"]
 
 [ext_resource type="Texture2D" uid="uid://qjrh1376vv3f" path="res://icon.svg" id="1_02ohv"]
+[ext_resource type="Script" uid="uid://cl481xfr2k7gu" path="res://player_character.gd" id="1_5up26"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5up26"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5up26"]
-radius = 64.0
+radius = 48.0
 height = 128.0
 
 [node name="CharacterBody2D" type="RigidBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_5up26")
+physics_material_override = SubResource("PhysicsMaterial_5up26")
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5up26")
+JUMP_VELOCITY = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_02ohv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5up26")

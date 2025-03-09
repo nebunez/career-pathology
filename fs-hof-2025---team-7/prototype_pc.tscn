@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character.tscn" id="1_xuxd4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
+friction = 0.2
 
 [sub_resource type="Gradient" id="Gradient_3cr1e"]
 offsets = PackedFloat32Array(0)
@@ -19,7 +20,11 @@ size = Vector2(1280, 20)
 [node name="PrototypePc" type="Node2D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_xuxd4")]
-position = Vector2(640, 590)
+position = Vector2(628, 336)
+WALK_MAX_VELOCITY = 500.0
+AIR_ACCEL = 1000.0
+AIR_DEACCEL = 1000.0
+JUMP_VELOCITY = 1000
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(640, 710)
