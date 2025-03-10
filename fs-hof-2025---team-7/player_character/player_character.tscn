@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d26acnrtv8nu7"]
 
-[ext_resource type="Texture2D" uid="uid://qjrh1376vv3f" path="res://icon.svg" id="1_02ohv"]
 [ext_resource type="Script" uid="uid://cl481xfr2k7gu" path="res://player_character/player_character.gd" id="1_5up26"]
+[ext_resource type="Texture2D" uid="uid://c1eo18nl8beig" path="res://player_character/player_character.png" id="2_1ty04"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5up26"]
 friction = 0.2
@@ -19,7 +19,7 @@ script = ExtResource("1_5up26")
 JUMP_VELOCITY = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_02ohv")
+texture = ExtResource("2_1ty04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5up26")

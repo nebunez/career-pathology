@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=11 format=3 uid="uid://cniwlsibop00s"]
 
 [ext_resource type="Script" uid="uid://ceygn28uo7lc6" path="res://game/game.gd" id="1_dakft"]
 [ext_resource type="PackedScene" uid="uid://cv4eodsu1puwv" path="res://game/game_ui.tscn" id="1_dxrkv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bill_spawner.tscn" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/FS_Arch.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://tv15jupkugkx" path="res://pickups/pickup.tscn" id="4_u5opy"]
+[ext_resource type="Texture2D" uid="uid://sg6e8dk4sy6o" path="res://world/tree.png" id="7_y36n6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
 friction = 0.2
@@ -255,23 +256,99 @@ move_behaviour = 1
 move_range = 100.0
 move_speed = 50.0
 
-[node name="Bills" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="BillSpawner" parent="Bills" instance=ExtResource("3_ryrav")]
+[node name="Bills" type="Node2D" parent="Enemies"]
+
+[node name="BillSpawner" parent="Enemies/Bills" instance=ExtResource("3_ryrav")]
 position = Vector2(-885, -522)
-player_path = NodePath("../../PlayerCharacter")
+player_path = NodePath("../../../PlayerCharacter")
 min_spawn_time = 3.0
 max_spawn_time = 10.0
 min_speed = 200.0
 max_speed = 400.0
 
-[node name="BillSpawner2" parent="Bills" instance=ExtResource("3_ryrav")]
+[node name="BillSpawner2" parent="Enemies/Bills" instance=ExtResource("3_ryrav")]
 position = Vector2(748, -834)
-player_path = NodePath("../../PlayerCharacter")
+player_path = NodePath("../../../PlayerCharacter")
 min_spawn_time = 3.0
 max_spawn_time = 10.0
 min_speed = 200.0
 max_speed = 400.0
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree" type="Sprite2D" parent="Trees"]
+position = Vector2(325, 0)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree2" type="Sprite2D" parent="Trees"]
+position = Vector2(777, 0)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree3" type="Sprite2D" parent="Trees"]
+position = Vector2(-806, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree4" type="Sprite2D" parent="Trees"]
+position = Vector2(-1686, 0)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree5" type="Sprite2D" parent="Trees"]
+position = Vector2(-1241, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree6" type="Sprite2D" parent="Trees"]
+position = Vector2(35, 0)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree7" type="Sprite2D" parent="Trees"]
+position = Vector2(1197, 0)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree8" type="Sprite2D" parent="Trees"]
+position = Vector2(-2414, 0)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree9" type="Sprite2D" parent="Trees"]
+position = Vector2(-2076, 0)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree10" type="Sprite2D" parent="Trees"]
+position = Vector2(1777, 0)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
+
+[node name="Tree11" type="Sprite2D" parent="Trees"]
+position = Vector2(1506, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_y36n6")
+centered = false
+offset = Vector2(0, -265)
 
 [node name="TheArch" type="Sprite2D" parent="."]
 position = Vector2(0, -350)
