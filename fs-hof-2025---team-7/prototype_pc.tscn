@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=5 format=3 uid="uid://cniwlsibop00s"]
 
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character.tscn" id="1_xuxd4"]
 [ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://cloud.tscn" id="2_3cr1e"]
@@ -6,46 +6,70 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
 friction = 0.2
 
-[sub_resource type="Gradient" id="Gradient_3cr1e"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_15brc"]
-gradient = SubResource("Gradient_3cr1e")
-width = 1280
-height = 20
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg1s3"]
-size = Vector2(1280, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cr1e"]
 
 [node name="PrototypePc" type="Node2D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_xuxd4")]
-position = Vector2(628, 336)
+position = Vector2(0, -119)
 WALK_ACCEL = 1000.0
 WALK_MAX_VELOCITY = 1000.0
 AIR_ACCEL = 1000.0
 AIR_DEACCEL = 1000.0
 JUMP_VELOCITY = 1500
 
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+limit_bottom = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_screen = false
+editor_draw_limits = true
+
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(640, 710)
 physics_material_override = SubResource("PhysicsMaterial_xuxd4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-texture = SubResource("GradientTexture2D_15brc")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("RectangleShape2D_mg1s3")
+shape = SubResource("WorldBoundaryShape2D_3cr1e")
 
 [node name="Clouds" type="Node2D" parent="."]
 
 [node name="Cloud" parent="Clouds" instance=ExtResource("2_3cr1e")]
-position = Vector2(961, 336)
+position = Vector2(355, -270)
 
 [node name="Mover" parent="Clouds/Cloud" index="2"]
 move_behaviour = 1
 move_range = 100.0
 move_speed = 50.0
 
+[node name="Cloud2" parent="Clouds" instance=ExtResource("2_3cr1e")]
+position = Vector2(-267, -489)
+
+[node name="Mover" parent="Clouds/Cloud2" index="2"]
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 100.0
+
+[node name="Cloud3" parent="Clouds" instance=ExtResource("2_3cr1e")]
+position = Vector2(110, -793)
+
+[node name="Mover" parent="Clouds/Cloud3" index="2"]
+move_axis = 1
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud4" parent="Clouds" instance=ExtResource("2_3cr1e")]
+position = Vector2(-219, -1106)
+
+[node name="Mover" parent="Clouds/Cloud4" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
 [editable path="Clouds/Cloud"]
+[editable path="Clouds/Cloud2"]
+[editable path="Clouds/Cloud3"]
+[editable path="Clouds/Cloud4"]
