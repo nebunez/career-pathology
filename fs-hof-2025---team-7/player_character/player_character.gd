@@ -4,7 +4,6 @@ extends RigidBody2D
 # Inpiration from:
 # https://github.com/godotengine/godot-demo-projects/blob/3.5-9e68af3/2d/physics_platformer/player/player.gd
 
-signal hit_by_bill
 @export var HEALTH: int = 100
 @export var WALK_ACCEL: float        = 500.0
 @export var WALK_DEACCEL: float      = 500.0
@@ -175,3 +174,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func apply_jump_penalty() -> void:
 	print("I was hit")
+
+func collect_pickup(career_path: GameState.CareerPath):
+	GameState.increment_skill(career_path)

@@ -4,6 +4,7 @@ extends Area2D
 # Movement velocity
 var velocity: Vector2 = Vector2.ZERO
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var delete_timer = Timer.new()
@@ -16,13 +17,16 @@ func _ready() -> void:
 	# Set up collision detection
 	body_entered.connect(_on_body_entered)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Move the bill according to its velocity
 	position += velocity * delta
 
+
 func _on_delete_timer_timeout() -> void:
 	queue_free()
+
 
 func _on_body_entered(body: Node2D) -> void:
 	# Check if collided with player
