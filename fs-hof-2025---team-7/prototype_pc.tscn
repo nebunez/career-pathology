@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=7 format=3 uid="uid://cniwlsibop00s"]
 
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character.tscn" id="1_xuxd4"]
 [ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://cloud.tscn" id="2_3cr1e"]
 [ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bill_spawner.tscn" id="3_15brc"]
+[ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/FS_Arch.png" id="4_mg1s3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
 friction = 0.2
@@ -88,6 +89,10 @@ min_spawn_time = 3.0
 max_spawn_time = 10.0
 min_speed = 200.0
 max_speed = 400.0
+
+[node name="TheArch" type="Sprite2D" parent="."]
+position = Vector2(0, -350)
+texture = ExtResource("4_mg1s3")
 
 [editable path="Clouds/Cloud"]
 [editable path="Clouds/Cloud2"]
