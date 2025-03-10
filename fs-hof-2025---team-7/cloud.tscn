@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://420ehburaqq1"]
+[gd_scene load_steps=5 format=3 uid="uid://420ehburaqq1"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc601k41n1fdr" path="res://world/clouds/cloud_sprite_frames.tres" id="1_4rphk"]
+[ext_resource type="Script" uid="uid://cn4mji4y7tut6" path="res://world/mover.gd" id="2_b3oxr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4rphk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3oxr"]
 size = Vector2(489, 82)
 
-[node name="Cloud" type="StaticBody2D"]
+[node name="Cloud" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_4rphk")
+gravity_scale = 0.0
+freeze = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_4rphk")
@@ -17,3 +20,7 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 25)
 shape = SubResource("RectangleShape2D_b3oxr")
+
+[node name="Mover" type="Node2D" parent="."]
+script = ExtResource("2_b3oxr")
+metadata/_custom_type_script = "uid://cn4mji4y7tut6"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=7 format=3 uid="uid://cniwlsibop00s"]
 
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character.tscn" id="1_xuxd4"]
+[ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://cloud.tscn" id="2_3cr1e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
 friction = 0.2
@@ -21,10 +22,11 @@ size = Vector2(1280, 20)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_xuxd4")]
 position = Vector2(628, 336)
-WALK_MAX_VELOCITY = 500.0
+WALK_ACCEL = 1000.0
+WALK_MAX_VELOCITY = 1000.0
 AIR_ACCEL = 1000.0
 AIR_DEACCEL = 1000.0
-JUMP_VELOCITY = 1000
+JUMP_VELOCITY = 1500
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(640, 710)
@@ -35,3 +37,15 @@ texture = SubResource("GradientTexture2D_15brc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_mg1s3")
+
+[node name="Clouds" type="Node2D" parent="."]
+
+[node name="Cloud" parent="Clouds" instance=ExtResource("2_3cr1e")]
+position = Vector2(961, 336)
+
+[node name="Mover" parent="Clouds/Cloud" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[editable path="Clouds/Cloud"]
