@@ -10,7 +10,7 @@ extends Node
 
 
 func _ready() -> void:
-	EventBus.start_game.connect(_on_start_game)
+	EventBus.game_started.connect(_on_start_game)
 
 
 # Methods

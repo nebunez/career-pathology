@@ -1,22 +1,37 @@
-[gd_scene format=3 uid="uid://cv4eodsu1puwv"]
+[gd_scene load_steps=3 format=3 uid="uid://cv4eodsu1puwv"]
+
+[ext_resource type="Script" uid="uid://s5t4q1w2ouuw" path="res://game/game_ui.gd" id="1_0occc"]
+[ext_resource type="Theme" uid="uid://iy0q11075hte" path="res://main_theme.tres" id="2_qe77m"]
 
 [node name="GameUi" type="CanvasLayer"]
+script = ExtResource("1_0occc")
 
-[node name="Age" type="HBoxContainer" parent="."]
+[node name="ThemeWrapper" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_qe77m")
+
+[node name="Age" type="HBoxContainer" parent="ThemeWrapper"]
 offset_right = 300.0
 offset_bottom = 32.0
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="Age"]
+[node name="AgeLabel" type="Label" parent="ThemeWrapper/Age"]
 layout_mode = 2
 text = "Age"
 
-[node name="ProgressBar" type="ProgressBar" parent="Age"]
+[node name="AgeValue" type="ProgressBar" parent="ThemeWrapper/Age"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="Stats" type="Panel" parent="."]
+[node name="Stats" type="Panel" parent="ThemeWrapper"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -25,7 +40,7 @@ offset_top = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="StatsContainer" type="HBoxContainer" parent="Stats"]
+[node name="StatsContainer" type="HBoxContainer" parent="ThemeWrapper/Stats"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,72 +49,101 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Art" type="HBoxContainer" parent="Stats/StatsContainer"]
+[node name="Art" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 16
 
-[node name="Key" type="Label" parent="Stats/StatsContainer/Art"]
+[node name="ArtKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Art"]
 layout_mode = 2
 text = "Art"
 
-[node name="Value" type="Label" parent="Stats/StatsContainer/Art"]
+[node name="ArtValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Art"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
 
-[node name="Business" type="HBoxContainer" parent="Stats/StatsContainer"]
+[node name="Business" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 16
 
-[node name="Key" type="Label" parent="Stats/StatsContainer/Business"]
-layout_mode = 2
-text = "Art"
-
-[node name="Value" type="Label" parent="Stats/StatsContainer/Business"]
-layout_mode = 2
-text = "00"
-horizontal_alignment = 2
-
-[node name="Gaming" type="HBoxContainer" parent="Stats/StatsContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/separation = 16
-
-[node name="Key" type="Label" parent="Stats/StatsContainer/Gaming"]
-layout_mode = 2
-text = "Game Design"
-
-[node name="Value" type="Label" parent="Stats/StatsContainer/Gaming"]
-layout_mode = 2
-text = "00"
-horizontal_alignment = 2
-
-[node name="Music" type="HBoxContainer" parent="Stats/StatsContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/separation = 16
-
-[node name="Key" type="Label" parent="Stats/StatsContainer/Music"]
+[node name="BusinessKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Business"]
 layout_mode = 2
 text = "Business"
 
-[node name="Value" type="Label" parent="Stats/StatsContainer/Music"]
+[node name="BusinessValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Business"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
 
-[node name="Writing" type="HBoxContainer" parent="Stats/StatsContainer"]
+[node name="Gaming" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 16
 
-[node name="Key" type="Label" parent="Stats/StatsContainer/Writing"]
+[node name="GamingKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
 layout_mode = 2
-text = "Writing"
+text = "Game Design"
 
-[node name="Value" type="Label" parent="Stats/StatsContainer/Writing"]
+[node name="GamingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
+
+[node name="Music" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 16
+
+[node name="MusicKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Music"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Music"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+
+[node name="Writing" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 16
+
+[node name="WritingKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
+layout_mode = 2
+text = "Writing"
+
+[node name="WritingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+
+[node name="GameOver" type="Panel" parent="ThemeWrapper"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeWrapper/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="GameOverResult" type="Label" parent="ThemeWrapper/GameOver/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+
+[node name="Button" type="Button" parent="ThemeWrapper/GameOver/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"

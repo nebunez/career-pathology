@@ -13,7 +13,7 @@ func _on_credits_back_button_up() -> void:
 
 
 func _on_start_game_button_up() -> void:
-	EventBus.start_game.emit()
+	EventBus.game_started.emit()
 
 
 func _on_quit_button_up() -> void:
