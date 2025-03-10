@@ -17,4 +17,4 @@ func _on_start_game_button_up() -> void:
 
 
 func _on_quit_button_up() -> void:
-	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	EventBus.quit_requested.emit()

@@ -6,3 +6,4 @@ signal game_over_changed
 signal return_to_main_menu
 signal skill_changed
 signal is_victory_changed
+signal quit_requested
