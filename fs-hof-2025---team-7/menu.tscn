@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://64n7fn525aop"]
+[gd_scene load_steps=10 format=3 uid="uid://64n7fn525aop"]
 
 [ext_resource type="Theme" uid="uid://iy0q11075hte" path="res://main_theme.tres" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://dfuan43o4ap6m" path="res://menu.gd" id="2_ouk20"]
+[ext_resource type="Script" uid="uid://cwcdphbhdiae0" path="res://main_menu.gd" id="3_mae5d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsb4k"]
 font_size = 71
@@ -36,6 +37,7 @@ offset_bottom = 720.0
 
 [node name="MainMenu" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+script = ExtResource("3_mae5d")
 
 [node name="TitleContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
 layout_mode = 2
@@ -49,10 +51,11 @@ label_settings = SubResource("LabelSettings_vsb4k")
 horizontal_alignment = 1
 
 [node name="PathButtonsContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GameDesignPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
+[node name="GamingPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -104,17 +107,19 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.14
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainMenu/ExpositionContainer"]
-custom_minimum_size = Vector2(512, 0)
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Exposition" type="Label" parent="MarginContainer/MainMenu/ExpositionContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_vertical = 1
-text = ">> You wish to create a world for others to explore. 
->> It is your mission to reach the top of this world and prove you have what it takes. 
->> If you cannot navigate an unknown world, how can you hope to make one?"
+text = "Welcome to the first day of your new career path!
+
+Please select a career from the options above to start your journey."
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="MenuButtonsContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
 layout_mode = 2
@@ -127,9 +132,11 @@ size_flags_horizontal = 6
 text = "Credits"
 
 [node name="StartGame" type="Button" parent="MarginContainer/MainMenu/MenuButtonsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 6
+disabled = true
 text = "Let's Go!"
 
 [node name="Quit" type="Button" parent="MarginContainer/MainMenu/MenuButtonsContainer"]
@@ -219,6 +226,11 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Back"
 
+[connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/GamingPath" to="MarginContainer/MainMenu" method="_on_gaming_path_button_up"]
+[connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/ArtPath" to="MarginContainer/MainMenu" method="_on_art_path_button_up"]
+[connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/WritingPath" to="MarginContainer/MainMenu" method="_on_writing_path_button_up"]
+[connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/BusinessPath" to="MarginContainer/MainMenu" method="_on_business_path_button_up"]
+[connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/MusicPath" to="MarginContainer/MainMenu" method="_on_music_path_button_up"]
 [connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/ShowCredits" to="." method="_on_show_credits_button_up"]
 [connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="MarginContainer/Credits/CreditsModal/CreditsBack" to="." method="_on_credits_back_button_up"]
