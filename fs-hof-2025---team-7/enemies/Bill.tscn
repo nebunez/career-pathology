@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxrpwr3ieyn6b"]
+
+[ext_resource type="Script" uid="uid://dd1xq3s25y8ev" path="res://enemies/bill.gd" id="1_o08ph"]
+
+[sub_resource type="Gradient" id="Gradient_fuphb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.521569, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lc674"]
+gradient = SubResource("Gradient_fuphb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o08ph"]
+size = Vector2(64, 64)
+
+[node name="Bill" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_o08ph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_lc674")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o08ph")

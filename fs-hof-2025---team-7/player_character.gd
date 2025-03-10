@@ -4,6 +4,8 @@ extends RigidBody2D
 # Inpiration from:
 # https://github.com/godotengine/godot-demo-projects/blob/3.5-9e68af3/2d/physics_platformer/player/player.gd
 
+signal hit_by_bill
+@export var HEALTH: int = 100
 @export var WALK_ACCEL: float        = 500.0
 @export var WALK_DEACCEL: float      = 500.0
 @export var WALK_MAX_VELOCITY: float = 140.0
@@ -25,12 +27,12 @@ var floor_h_velocity: float = 0.0
 var airborne_time: float = 1e20
 var shoot_time: float    = 1e20
 
-#onready var sound_jump = $SoundJump
-#onready var sound_shoot = $SoundShoot
-#onready var sprite = $Sprite
-#onready var sprite_smoke = sprite.get_node(@"Smoke")
-#onready var animation_player = $AnimationPlayer
-#onready var bullet_shoot = $BulletShoot
+#@onready var sound_jump = $SoundJump
+#@onready var sound_shoot = $SoundShoot
+#@onready var sprite = $Sprite
+#@onready var sprite_smoke = sprite.get_node(@"Smoke")
+#@onready var animation_player = $AnimationPlayer
+#@onready var bullet_shoot = $BulletShoot
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var new_velocity: Vector2 = state.get_linear_velocity()
@@ -170,3 +172,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# Finally, apply gravity and set back the linear velocity.
 	new_velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(new_velocity)
+
+func apply_jump_penalty() -> void:
+	print("I was hit")
