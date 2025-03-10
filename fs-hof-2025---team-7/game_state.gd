@@ -6,7 +6,7 @@ enum CareerPath { ART, BUSINESS, GAMING, MUSIC, WRITING }
 const BASE_SKILL_VALUE: float = 5.0
 const BASE_SELECTED_SKILL_VALUE: float = 95.0
 const BASE_SKILL_INCREMENT_VALUE: float = 5.0
-const BASE_AGE_INCREMENT_VALUE: float = 0.6
+const BASE_AGE_INCREMENT_VALUE: float = 1.666
 
 # Game State
 ####################

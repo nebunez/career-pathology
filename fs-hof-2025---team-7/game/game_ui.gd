@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var _gaming_value: Label = %GamingValue
 @onready var _music_value: Label = %MusicValue
 @onready var _writing_value: Label = %WritingValue
+@onready var _game_over_result: Label = %GameOverResult
 
 # Overrides
 ########################################
@@ -61,6 +62,9 @@ func _on_skill_changed(career_path: GameState.CareerPath) -> void:
 
 
 func _on_game_over_changed() -> void:
+	_game_over_result.text = (
+		"You've completed your dream! ✌️" if GameState.is_victory else "You died of old age! 🪦"
+	)
 	_game_over.visible = GameState.is_game_over
 
 

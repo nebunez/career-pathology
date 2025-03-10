@@ -146,6 +146,7 @@ theme_override_constants/separation = 64
 alignment = 1
 
 [node name="GameOverResult" type="Label" parent="ThemeWrapper/GameOver/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Game Over"
