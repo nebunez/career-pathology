@@ -3,6 +3,11 @@ extends CanvasLayer
 
 @onready var _age_value: ProgressBar = %AgeValue
 @onready var _game_over: Control = %GameOver
+@onready var _art_value: Label = %ArtValue
+@onready var _business_value: Label = %BusinessValue
+@onready var _gaming_value: Label = %GamingValue
+@onready var _music_value: Label = %MusicValue
+@onready var _writing_value: Label = %WritingValue
 
 # Overrides
 ########################################
@@ -10,11 +15,38 @@ extends CanvasLayer
 
 func _ready() -> void:
 	EventBus.age_changed.connect(_on_age_changed)
+	EventBus.skill_changed.connect(_on_skill_changed)
 	EventBus.game_over_changed.connect(_on_game_over_changed)
 
 
 # Methods
 ########################################
+
+
+func _update_skill_text(career_path: GameState.CareerPath) -> void:
+	var value: float = GameState.skills[career_path]
+	var label: Label
+	match career_path:
+		GameState.CareerPath.ART:
+			label = _art_value
+
+		GameState.CareerPath.BUSINESS:
+			label = _business_value
+
+		GameState.CareerPath.GAMING:
+			label = _gaming_value
+
+		GameState.CareerPath.MUSIC:
+			label = _music_value
+
+		GameState.CareerPath.WRITING:
+			label = _writing_value
+
+		_:
+			push_error("Unknown skill name")
+
+	label.text = "%d" % value
+
 
 # Signal Connections
 ####################
@@ -22,6 +54,10 @@ func _ready() -> void:
 
 func _on_age_changed() -> void:
 	_age_value.value = GameState.age
+
+
+func _on_skill_changed(career_path: GameState.CareerPath) -> void:
+	_update_skill_text(career_path)
 
 
 func _on_game_over_changed() -> void:

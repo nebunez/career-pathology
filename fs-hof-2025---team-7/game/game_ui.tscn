@@ -60,6 +60,7 @@ layout_mode = 2
 text = "Art"
 
 [node name="ArtValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Art"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
@@ -74,6 +75,7 @@ layout_mode = 2
 text = "Business"
 
 [node name="BusinessValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Business"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
@@ -88,6 +90,7 @@ layout_mode = 2
 text = "Game Design"
 
 [node name="GamingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
@@ -102,6 +105,7 @@ layout_mode = 2
 text = "Music"
 
 [node name="MusicValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Music"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
@@ -116,6 +120,7 @@ layout_mode = 2
 text = "Writing"
 
 [node name="WritingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "00"
 horizontal_alignment = 2
