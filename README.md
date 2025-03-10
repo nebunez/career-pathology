@@ -4,3 +4,5 @@
  - Jay Ryan
  - Dan Balog
  - Mel Dommer
+ - Stormy Mills
+ - Blade Moore
