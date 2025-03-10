@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="FS HOF 2025 - Team 7"
+config/version="0.0.1"
 run/main_scene="uid://cbnr3dtavyfej"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*res://event_bus.gd"
+EventBus="*res://Autoloads/event_bus.gd"
 
 [display]
 

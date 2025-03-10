@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=8 format=3 uid="uid://cniwlsibop00s"]
 
+[ext_resource type="PackedScene" uid="uid://cv4eodsu1puwv" path="res://game/game_ui.tscn" id="1_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character/player_character.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://world/clouds/cloud.tscn" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bill_spawner.tscn" id="3_ryrav"]
@@ -10,7 +11,9 @@ friction = 0.2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cr1e"]
 
-[node name="PrototypePc" type="Node2D"]
+[node name="Game" type="Node2D"]
+
+[node name="GameUi" parent="." instance=ExtResource("1_dxrkv")]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_fc0e3")]
 position = Vector2(0, -119)

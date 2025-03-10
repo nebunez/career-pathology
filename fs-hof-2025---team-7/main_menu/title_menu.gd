@@ -43,25 +43,30 @@ func _get_text_file_body(filepath: String) -> String:
 
 
 func _on_art_path_button_up() -> void:
+	GameState.chosen_path = GameState.CareerPath.ART
 	_exposition.text = _copies.art_path
 	_start_game.disabled = false
 
 
 func _on_gaming_path_button_up() -> void:
+	GameState.chosen_path = GameState.CareerPath.GAMING
 	_exposition.text = _copies.gaming_path
 	_start_game.disabled = false
 
 
 func _on_music_path_button_up() -> void:
+	GameState.chosen_path = GameState.CareerPath.MUSIC
 	_exposition.text = _copies.music_path
 	_start_game.disabled = false
 
 
 func _on_business_path_button_up() -> void:
+	GameState.chosen_path = GameState.CareerPath.BUSINESS
 	_exposition.text = _copies.business_path
 	_start_game.disabled = false
 
 
 func _on_writing_path_button_up() -> void:
+	GameState.chosen_path = GameState.CareerPath.WRITING
 	_exposition.text = _copies.writing_path
 	_start_game.disabled = false
