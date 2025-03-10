@@ -26,3 +26,7 @@ func _on_age_changed() -> void:
 
 func _on_game_over_changed() -> void:
 	_game_over.visible = GameState.is_game_over
+
+
+func _on_return_to_main_menu_button_up() -> void:
+	EventBus.return_to_main_menu.emit()

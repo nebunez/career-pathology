@@ -1,7 +1,6 @@
 class_name Game
 extends Node2D
 
-
 @onready var _age_timer: Timer = %AgeTimer
 
 # Overrides
@@ -18,6 +17,7 @@ func _process(_delta: float) -> void:
 
 # Methods
 ########################################
+
 
 func _start_game() -> void:
 	_age_timer.stop()
