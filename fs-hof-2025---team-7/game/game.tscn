@@ -47,12 +47,60 @@ shape = SubResource("WorldBoundaryShape2D_3cr1e")
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="Pickup" parent="Pickups" instance=ExtResource("4_u5opy")]
-position = Vector2(-393, -1559)
+position = Vector2(362, -2259)
+
+[node name="Pickup2" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(1520, -2155)
+
+[node name="Pickup3" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-169, -883)
+
+[node name="Pickup4" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-185, -2496)
+
+[node name="Pickup5" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-1889, -1409)
+
+[node name="Pickup6" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-1816, -2647)
+
+[node name="Pickup7" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(1001, -1809)
+
+[node name="Pickup8" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-951, -1455)
+
+[node name="Pickup9" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(1493, -787)
+
+[node name="Pickup10" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(469, -1042)
+
+[node name="Pickup11" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-811, -2350)
+
+[node name="Pickup12" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-1145, -2910)
+
+[node name="Pickup13" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-2272, -819)
+
+[node name="Pickup14" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(596, -2892)
+
+[node name="Pickup15" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-1633, -855)
+
+[node name="Pickup16" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(-1065, -651)
+
+[node name="Pickup17" parent="Pickups" instance=ExtResource("4_u5opy")]
+position = Vector2(623, -1476)
 
 [node name="Clouds" type="Node2D" parent="."]
 
 [node name="Cloud" parent="Clouds" instance=ExtResource("2_7jktm")]
-position = Vector2(622, -368)
+position = Vector2(495, -748)
 
 [node name="Mover" parent="Clouds/Cloud" index="2"]
 move_behaviour = 1
@@ -60,7 +108,7 @@ move_range = 100.0
 move_speed = 50.0
 
 [node name="Cloud2" parent="Clouds" instance=ExtResource("2_7jktm")]
-position = Vector2(-723, -589)
+position = Vector2(1022, -421)
 
 [node name="Mover" parent="Clouds/Cloud2" index="2"]
 move_behaviour = 1
@@ -69,7 +117,7 @@ move_range = 100.0
 move_speed = 100.0
 
 [node name="Cloud3" parent="Clouds" instance=ExtResource("2_7jktm")]
-position = Vector2(299, -804)
+position = Vector2(-1841, -1136)
 
 [node name="Mover" parent="Clouds/Cloud3" index="2"]
 move_axis = 1
@@ -79,9 +127,130 @@ move_range = 100.0
 move_speed = 50.0
 
 [node name="Cloud4" parent="Clouds" instance=ExtResource("2_7jktm")]
-position = Vector2(-410, -1186)
+position = Vector2(1116, -1477)
 
 [node name="Mover" parent="Clouds/Cloud4" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud5" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(1015, -2239)
+
+[node name="Mover" parent="Clouds/Cloud5" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud6" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-1822, -2392)
+
+[node name="Mover" parent="Clouds/Cloud6" index="2"]
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 100.0
+
+[node name="Cloud7" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-1951, -519)
+
+[node name="Mover" parent="Clouds/Cloud7" index="2"]
+move_axis = 1
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud8" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(1310, -1067)
+
+[node name="Mover" parent="Clouds/Cloud8" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud9" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(186, -1316)
+
+[node name="Mover" parent="Clouds/Cloud9" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud10" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-119, -604)
+
+[node name="Mover" parent="Clouds/Cloud10" index="2"]
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 100.0
+
+[node name="Cloud11" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-958, -1130)
+
+[node name="Mover" parent="Clouds/Cloud11" index="2"]
+move_axis = 1
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud12" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-1054, -324)
+
+[node name="Mover" parent="Clouds/Cloud12" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud13" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-796, -2051)
+
+[node name="Mover" parent="Clouds/Cloud13" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud14" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-158, -2245)
+
+[node name="Mover" parent="Clouds/Cloud14" index="2"]
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 100.0
+
+[node name="Cloud15" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(1712, -1764)
+
+[node name="Mover" parent="Clouds/Cloud15" index="2"]
+move_axis = 1
+move_behaviour = 1
+initial_position = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud16" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(359, -1893)
+
+[node name="Mover" parent="Clouds/Cloud16" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud17" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(-1181, -2644)
+
+[node name="Mover" parent="Clouds/Cloud17" index="2"]
+move_behaviour = 1
+move_range = 100.0
+move_speed = 50.0
+
+[node name="Cloud18" parent="Clouds" instance=ExtResource("2_7jktm")]
+position = Vector2(634, -2638)
+
+[node name="Mover" parent="Clouds/Cloud18" index="2"]
 move_behaviour = 1
 move_range = 100.0
 move_speed = 50.0
@@ -114,3 +283,17 @@ texture = ExtResource("4_eow3j")
 [editable path="Clouds/Cloud2"]
 [editable path="Clouds/Cloud3"]
 [editable path="Clouds/Cloud4"]
+[editable path="Clouds/Cloud5"]
+[editable path="Clouds/Cloud6"]
+[editable path="Clouds/Cloud7"]
+[editable path="Clouds/Cloud8"]
+[editable path="Clouds/Cloud9"]
+[editable path="Clouds/Cloud10"]
+[editable path="Clouds/Cloud11"]
+[editable path="Clouds/Cloud12"]
+[editable path="Clouds/Cloud13"]
+[editable path="Clouds/Cloud14"]
+[editable path="Clouds/Cloud15"]
+[editable path="Clouds/Cloud16"]
+[editable path="Clouds/Cloud17"]
+[editable path="Clouds/Cloud18"]
