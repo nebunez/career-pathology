@@ -173,7 +173,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	state.set_linear_velocity(new_velocity)
 
 func apply_jump_penalty() -> void:
-	print("I was hit")
+	GameState.age_multiplier = GameState.age_multiplier + 0.2
 
 func collect_pickup(career_path: GameState.CareerPath):
 	GameState.increment_skill(career_path)

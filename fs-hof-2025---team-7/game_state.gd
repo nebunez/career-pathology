@@ -35,6 +35,7 @@ static var skill_multiplier: float = 1.0
 
 static func reset() -> void:
 	age = 0.0
+	age_multiplier = 1.0
 	is_game_over = false
 	is_victory = false
 	_reset_skills()
