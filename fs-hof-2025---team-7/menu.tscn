@@ -232,5 +232,6 @@ text = "Back"
 [connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/BusinessPath" to="MarginContainer/MainMenu" method="_on_business_path_button_up"]
 [connection signal="button_up" from="MarginContainer/MainMenu/PathButtonsContainer/MusicPath" to="MarginContainer/MainMenu" method="_on_music_path_button_up"]
 [connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/ShowCredits" to="." method="_on_show_credits_button_up"]
+[connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/StartGame" to="." method="_on_start_game_button_up"]
 [connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="MarginContainer/Credits/CreditsModal/CreditsBack" to="." method="_on_credits_back_button_up"]
