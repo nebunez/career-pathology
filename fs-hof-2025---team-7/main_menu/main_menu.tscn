@@ -1,13 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://64n7fn525aop"]
+[gd_scene load_steps=15 format=3 uid="uid://64n7fn525aop"]
 
 [ext_resource type="Theme" uid="uid://iy0q11075hte" path="res://main_theme.tres" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://dfuan43o4ap6m" path="res://main_menu/main_menu.gd" id="2_ouk20"]
 [ext_resource type="Script" uid="uid://cwcdphbhdiae0" path="res://main_menu/title_menu.gd" id="3_mae5d"]
+[ext_resource type="Texture2D" uid="uid://cp013ku8o5mj0" path="res://main_menu/gaming_texture_normal.tres" id="4_bws42"]
+[ext_resource type="Texture2D" uid="uid://3bfrfglnfuh1" path="res://main_menu/gaming_texture_pressed.tres" id="5_6tl50"]
+[ext_resource type="Texture2D" uid="uid://lgdsn4810qas" path="res://main_menu/gaming_texture_hover.tres" id="6_t6bnd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsb4k"]
 font_size = 71
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lti8b"]
+
+[sub_resource type="Gradient" id="Gradient_6tl50"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6bnd"]
+gradient = SubResource("Gradient_6tl50")
 
 [sub_resource type="Gradient" id="Gradient_vsb4k"]
 
@@ -61,7 +69,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lti8b")
-texture_normal = SubResource("GradientTexture2D_lti8b")
+texture_normal = SubResource("GradientTexture2D_t6bnd")
 stretch_mode = 5
 
 [node name="ArtPath" type="TextureButton" parent="MarginContainer/TitleMenu/PathButtonsContainer"]
@@ -70,7 +78,9 @@ layout_mode = 2
 size_flags_horizontal = 6
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lti8b")
-texture_normal = SubResource("GradientTexture2D_lti8b")
+texture_normal = ExtResource("4_bws42")
+texture_pressed = ExtResource("5_6tl50")
+texture_hover = ExtResource("6_t6bnd")
 stretch_mode = 5
 
 [node name="WritingPath" type="TextureButton" parent="MarginContainer/TitleMenu/PathButtonsContainer"]

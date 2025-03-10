@@ -50,6 +50,21 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="Gaming" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 16
+
+[node name="GamingKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
+layout_mode = 2
+text = "Game Design"
+
+[node name="GamingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+
 [node name="Art" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -60,6 +75,21 @@ layout_mode = 2
 text = "Art"
 
 [node name="ArtValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Art"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+
+[node name="Writing" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 16
+
+[node name="WritingKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
+layout_mode = 2
+text = "Writing"
+
+[node name="WritingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
@@ -80,21 +110,6 @@ layout_mode = 2
 text = "00"
 horizontal_alignment = 2
 
-[node name="Gaming" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/separation = 16
-
-[node name="GamingKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
-layout_mode = 2
-text = "Game Design"
-
-[node name="GamingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Gaming"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "00"
-horizontal_alignment = 2
-
 [node name="Music" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -105,21 +120,6 @@ layout_mode = 2
 text = "Music"
 
 [node name="MusicValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Music"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "00"
-horizontal_alignment = 2
-
-[node name="Writing" type="HBoxContainer" parent="ThemeWrapper/Stats/StatsContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/separation = 16
-
-[node name="WritingKey" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
-layout_mode = 2
-text = "Writing"
-
-[node name="WritingValue" type="Label" parent="ThemeWrapper/Stats/StatsContainer/Writing"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"

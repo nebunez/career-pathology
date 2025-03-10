@@ -12,6 +12,7 @@ const BASE_AGE_INCREMENT_VALUE: float = 0.6
 ####################
 
 static var is_game_over: bool = false
+static var is_victory: bool = false
 
 # Player Values
 ####################
@@ -34,6 +35,8 @@ static var skill_multiplier: float = 1.0
 
 static func reset() -> void:
 	age = 0.0
+	is_game_over = false
+	is_victory = false
 	_reset_skills()
 
 
@@ -57,6 +60,10 @@ static func set_skill(career_path: CareerPath, value: float) -> void:
 static func set_game_over(value: bool) -> void:
 	is_game_over = value
 	EventBus.game_over_changed.emit()
+
+static func set_is_victory(value: bool) -> void:
+	is_victory = value
+	EventBus.is_victory_changed.emit()
 
 
 static func _reset_skills() -> void:

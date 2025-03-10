@@ -26,7 +26,10 @@ func _start_game() -> void:
 
 
 func _check_game_over() -> void:
-	if GameState.age == 100:
+	if GameState.skills[GameState.chosen_path] >= 100.0:
+		GameState.set_is_victory(true)
+		GameState.set_game_over(true)
+	elif GameState.age == 100:
 		GameState.set_game_over(true)
 
 
