@@ -1,17 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://64n7fn525aop"]
+[gd_scene load_steps=9 format=3 uid="uid://64n7fn525aop"]
+
+[ext_resource type="Theme" uid="uid://iy0q11075hte" path="res://main_theme.tres" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://dfuan43o4ap6m" path="res://menu.gd" id="2_ouk20"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsb4k"]
 font_size = 71
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_lti8b"]
 
 [sub_resource type="Gradient" id="Gradient_vsb4k"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lti8b"]
 gradient = SubResource("Gradient_vsb4k")
 
-[sub_resource type="Gradient" id="Gradient_ouk20"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+bg_color = Color(0.501961, 0.501961, 1, 0.784314)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mae5d"]
-gradient = SubResource("Gradient_ouk20")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -20,129 +26,199 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_lti8b")
+script = ExtResource("2_ouk20")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TitleContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/MainMenu/TitleContainer"]
 layout_mode = 2
-text = "Game Title Here"
+text = "Career Pathology"
 label_settings = SubResource("LabelSettings_vsb4k")
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PathButtonsContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GameDesignBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="GameDesignPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 6
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lti8b")
 texture_normal = SubResource("GradientTexture2D_lti8b")
 stretch_mode = 5
 
-[node name="ArtBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="ArtPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 6
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lti8b")
 texture_normal = SubResource("GradientTexture2D_lti8b")
 stretch_mode = 5
 
-[node name="Writing" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="WritingPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 6
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lti8b")
 texture_normal = SubResource("GradientTexture2D_lti8b")
 stretch_mode = 5
 
-[node name="Business" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="BusinessPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 6
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lti8b")
 texture_normal = SubResource("GradientTexture2D_lti8b")
 stretch_mode = 5
 
-[node name="Mustic" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MusicPath" type="TextureButton" parent="MarginContainer/MainMenu/PathButtonsContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 6
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lti8b")
 texture_normal = SubResource("GradientTexture2D_lti8b")
 stretch_mode = 5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ExpositionContainer" type="PanelContainer" parent="MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.14
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainMenu/ExpositionContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Exposition" type="Label" parent="MarginContainer/MainMenu/ExpositionContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = ">> You wish to create a world for others to explore. 
+>> It is your mission to reach the top of this world and prove you have what it takes. 
+>> If you cannot navigate an unknown world, how can you hope to make one?"
+vertical_alignment = 1
+
+[node name="MenuButtonsContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ShowCredits" type="Button" parent="MarginContainer/MainMenu/MenuButtonsContainer"]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Credits"
+
+[node name="StartGame" type="Button" parent="MarginContainer/MainMenu/MenuButtonsContainer"]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Let's Go!"
+
+[node name="Quit" type="Button" parent="MarginContainer/MainMenu/MenuButtonsContainer"]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Quit"
+
+[node name="Credits" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="ThisIsNotAButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer3/Control"]
-custom_minimum_size = Vector2(512, 192)
+[node name="CreditsModal" type="Panel" parent="MarginContainer/Credits"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lti8b")
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/Credits/CreditsModal"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -96.0
-offset_right = 256.0
-offset_bottom = 96.0
+offset_left = -328.0
+offset_top = -71.5
+offset_right = 328.0
+offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 6
-texture_normal = SubResource("GradientTexture2D_lti8b")
-stretch_mode = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_ouk20")
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Credits/CreditsModal/Panel"]
 layout_mode = 2
-size_flags_vertical = 10
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Credits/CreditsModal/Panel/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 2
+theme_override_constants/separation = 16
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
-custom_minimum_size = Vector2(128, 72)
+[node name="Label" type="Label" parent="MarginContainer/Credits/CreditsModal/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
-texture_normal = SubResource("GradientTexture2D_mae5d")
-stretch_mode = 5
+text = "Career Pathology was in less than 24 hours during the Full Sail Hall of Fame 15 Jam!"
+horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Credits/CreditsModal/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/separation = 64
+alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer2"]
-custom_minimum_size = Vector2(128, 72)
+[node name="CreditsRoles" type="Label" parent="MarginContainer/Credits/CreditsModal/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
-texture_normal = SubResource("GradientTexture2D_mae5d")
-stretch_mode = 5
+size_flags_vertical = 1
+text = "Environment and UI Art:
+Gameplay and UI Programming:
+Story:
+Character Art:
+Gameplay and UI Programming:"
+vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="CreditsNames" type="Label" parent="MarginContainer/Credits/CreditsModal/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_vertical = 1
+text = "Dan Balog
+Mel Dommer
+Blade Moore
+Stormy Mills
+John \"Jay\" Ryan"
+vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
-custom_minimum_size = Vector2(128, 72)
-layout_mode = 2
-size_flags_horizontal = 6
-texture_normal = SubResource("GradientTexture2D_mae5d")
-stretch_mode = 5
+[node name="CreditsBack" type="Button" parent="MarginContainer/Credits/CreditsModal"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -132.0
+offset_right = 23.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/ShowCredits" to="." method="_on_show_credits_button_up"]
+[connection signal="button_up" from="MarginContainer/MainMenu/MenuButtonsContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="MarginContainer/Credits/CreditsModal/CreditsBack" to="." method="_on_credits_back_button_up"]
