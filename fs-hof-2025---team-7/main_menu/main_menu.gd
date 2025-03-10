@@ -1,4 +1,4 @@
-class_name Menu
+class_name MainMenu
 extends Control
 
 @onready var _credits: Control = %Credits

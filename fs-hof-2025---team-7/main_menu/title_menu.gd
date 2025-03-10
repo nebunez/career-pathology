@@ -1,4 +1,4 @@
-class_name MainMenu
+class_name TitleMenu
 extends Control
 
 const STORY_RES_BASE_PATH := "res://story"

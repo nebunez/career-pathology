@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cniwlsibop00s"]
 
-[ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character.tscn" id="1_xuxd4"]
-[ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://cloud.tscn" id="2_3cr1e"]
-[ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bill_spawner.tscn" id="3_15brc"]
-[ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/FS_Arch.png" id="4_mg1s3"]
+[ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character/player_character.tscn" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://world/clouds/cloud.tscn" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bill_spawner.tscn" id="3_ryrav"]
+[ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/FS_Arch.png" id="4_eow3j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
 friction = 0.2
@@ -12,7 +12,7 @@ friction = 0.2
 
 [node name="PrototypePc" type="Node2D"]
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_xuxd4")]
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_fc0e3")]
 position = Vector2(0, -119)
 collision_layer = 5
 WALK_ACCEL = 1000.0
@@ -37,7 +37,7 @@ shape = SubResource("WorldBoundaryShape2D_3cr1e")
 
 [node name="Clouds" type="Node2D" parent="."]
 
-[node name="Cloud" parent="Clouds" instance=ExtResource("2_3cr1e")]
+[node name="Cloud" parent="Clouds" instance=ExtResource("2_7jktm")]
 position = Vector2(355, -270)
 
 [node name="Mover" parent="Clouds/Cloud" index="2"]
@@ -45,7 +45,7 @@ move_behaviour = 1
 move_range = 100.0
 move_speed = 50.0
 
-[node name="Cloud2" parent="Clouds" instance=ExtResource("2_3cr1e")]
+[node name="Cloud2" parent="Clouds" instance=ExtResource("2_7jktm")]
 position = Vector2(-267, -489)
 
 [node name="Mover" parent="Clouds/Cloud2" index="2"]
@@ -54,7 +54,7 @@ initial_position = 1
 move_range = 100.0
 move_speed = 100.0
 
-[node name="Cloud3" parent="Clouds" instance=ExtResource("2_3cr1e")]
+[node name="Cloud3" parent="Clouds" instance=ExtResource("2_7jktm")]
 position = Vector2(110, -793)
 
 [node name="Mover" parent="Clouds/Cloud3" index="2"]
@@ -64,7 +64,7 @@ initial_position = 1
 move_range = 100.0
 move_speed = 50.0
 
-[node name="Cloud4" parent="Clouds" instance=ExtResource("2_3cr1e")]
+[node name="Cloud4" parent="Clouds" instance=ExtResource("2_7jktm")]
 position = Vector2(-219, -1106)
 
 [node name="Mover" parent="Clouds/Cloud4" index="2"]
@@ -74,7 +74,7 @@ move_speed = 50.0
 
 [node name="Bills" type="Node2D" parent="."]
 
-[node name="BillSpawner" parent="Bills" instance=ExtResource("3_15brc")]
+[node name="BillSpawner" parent="Bills" instance=ExtResource("3_ryrav")]
 position = Vector2(-885, -522)
 player_path = NodePath("../../PlayerCharacter")
 min_spawn_time = 3.0
@@ -82,7 +82,7 @@ max_spawn_time = 10.0
 min_speed = 200.0
 max_speed = 400.0
 
-[node name="BillSpawner2" parent="Bills" instance=ExtResource("3_15brc")]
+[node name="BillSpawner2" parent="Bills" instance=ExtResource("3_ryrav")]
 position = Vector2(748, -834)
 player_path = NodePath("../../PlayerCharacter")
 min_spawn_time = 3.0
@@ -92,7 +92,7 @@ max_speed = 400.0
 
 [node name="TheArch" type="Sprite2D" parent="."]
 position = Vector2(0, -350)
-texture = ExtResource("4_mg1s3")
+texture = ExtResource("4_eow3j")
 
 [editable path="Clouds/Cloud"]
 [editable path="Clouds/Cloud2"]

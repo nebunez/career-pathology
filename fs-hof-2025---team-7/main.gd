@@ -3,7 +3,7 @@ extends Node
 
 @export var game_scene: PackedScene
 
-@onready var _menu: Control = %Menu
+@onready var _menu: Control = %MainMenu
 
 # Overrides
 ########################################
