@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=12 format=3 uid="uid://cniwlsibop00s"]
 
 [ext_resource type="Script" uid="uid://ceygn28uo7lc6" path="res://game/game.gd" id="1_dakft"]
 [ext_resource type="PackedScene" uid="uid://cv4eodsu1puwv" path="res://game/game_ui.tscn" id="1_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character/player_character.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://world/clouds/cloud.tscn" id="2_7jktm"]
-[ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bill_spawner.tscn" id="3_ryrav"]
+[ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bills/bill_spawner.tscn" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/FS_Arch.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://tv15jupkugkx" path="res://pickups/pickup.tscn" id="4_u5opy"]
+[ext_resource type="PackedScene" uid="uid://cbdym1pr4p76r" path="res://enemies/work/work_tie.tscn" id="7_l8g03"]
 [ext_resource type="Texture2D" uid="uid://sg6e8dk4sy6o" path="res://world/tree.png" id="7_y36n6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
@@ -275,6 +276,11 @@ min_spawn_time = 3.0
 max_spawn_time = 10.0
 min_speed = 200.0
 max_speed = 400.0
+
+[node name="WorkTies" type="Node2D" parent="Enemies"]
+
+[node name="WorkTie" parent="Enemies/WorkTies" instance=ExtResource("7_l8g03")]
+position = Vector2(-426, -415)
 
 [node name="Trees" type="Node2D" parent="."]
 

@@ -7,10 +7,10 @@
 friction = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5up26"]
-radius = 48.0
+radius = 24.0
 height = 128.0
 
-[node name="CharacterBody2D" type="RigidBody2D"]
+[node name="PlayerCharacter" type="RigidBody2D" groups=["Player Character"]]
 physics_material_override = SubResource("PhysicsMaterial_5up26")
 lock_rotation = true
 contact_monitor = true

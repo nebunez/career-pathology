@@ -5,26 +5,26 @@ extends RigidBody2D
 # https://github.com/godotengine/godot-demo-projects/blob/3.5-9e68af3/2d/physics_platformer/player/player.gd
 
 @export var HEALTH: int = 100
-@export var WALK_ACCEL: float        = 500.0
-@export var WALK_DEACCEL: float      = 500.0
+@export var WALK_ACCEL: float = 500.0
+@export var WALK_DEACCEL: float = 500.0
 @export var WALK_MAX_VELOCITY: float = 140.0
-@export var AIR_ACCEL: float         = 100.0
-@export var AIR_DEACCEL: float       = 100.0
-@export var JUMP_VELOCITY: int       = 380
-@export var STOP_JUMP_FORCE: float   = 450.0
-@export var MAX_SHOOT_POSE_TIME: float      = 0.3
+@export var AIR_ACCEL: float = 100.0
+@export var AIR_DEACCEL: float = 100.0
+@export var JUMP_VELOCITY: int = 380
+@export var STOP_JUMP_FORCE: float = 450.0
+@export var MAX_SHOOT_POSE_TIME: float = 0.3
 @export var MAX_FLOOR_AIRBORNE_TIME: float = 0.15
 
-var anim: String      = ""
+var anim: String = ""
 var siding_left: bool = false
-var jumping: bool       = false
+var jumping: bool = false
 var stopping_jump: bool = false
-var shooting: bool 	    = false
+var shooting: bool = false
 
 var floor_h_velocity: float = 0.0
 
 var airborne_time: float = 1e20
-var shoot_time: float    = 1e20
+var shoot_time: float = 1e20
 
 #@onready var sound_jump = $SoundJump
 #@onready var sound_shoot = $SoundShoot
@@ -33,17 +33,18 @@ var shoot_time: float    = 1e20
 #@onready var animation_player = $AnimationPlayer
 #@onready var bullet_shoot = $BulletShoot
 
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var new_velocity: Vector2 = state.get_linear_velocity()
-	var step: float           = state.get_step()
+	var step: float = state.get_step()
 
-	var new_anim: String      = anim
+	var new_anim: String = anim
 	var new_siding_left: bool = siding_left
 
 	# get the input
-	var move_left: bool  = Input.is_action_pressed("move_left")
+	var move_left: bool = Input.is_action_pressed("move_left")
 	var move_right: bool = Input.is_action_pressed("move_right")
-	var jump: bool  = Input.is_action_pressed("jump")
+	var jump: bool = Input.is_action_pressed("jump")
 	var shoot: bool = Input.is_action_pressed("shoot")
 
 	# Deapply prev floor velocity.
@@ -52,7 +53,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	# get the current floor normal
 	var found_floor: bool = false
-	var floor_index: int  = -1
+	var floor_index: int = -1
 	for x in range(state.get_contact_count()):
 		var ci: Vector2 = state.get_contact_local_normal(x)
 
@@ -150,12 +151,12 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	# Update siding.
 	#if new_siding_left != siding_left:
-		#if new_siding_left:
-			#sprite.scale.x = -1
-		#else:
-			#sprite.scale.x = 1
+	#if new_siding_left:
+	#sprite.scale.x = -1
+	#else:
+	#sprite.scale.x = 1
 #
-		#siding_left = new_siding_left
+	#siding_left = new_siding_left
 	# Change animation.
 	if new_anim != anim:
 		anim = new_anim
@@ -172,8 +173,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	new_velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(new_velocity)
 
+
 func apply_jump_penalty() -> void:
 	GameState.age_multiplier = GameState.age_multiplier + 0.2
+
 
 func collect_pickup(career_path: GameState.CareerPath):
 	GameState.increment_skill(career_path)

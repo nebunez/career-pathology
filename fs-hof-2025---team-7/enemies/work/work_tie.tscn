@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbdym1pr4p76r"]
+
+[ext_resource type="SpriteFrames" uid="uid://cu3gmathh2mo0" path="res://enemies/work/tie_sprite_frames.tres" id="1_n8iwn"]
+[ext_resource type="PackedScene" uid="uid://cplomuox6ox26" path="res://enemies/projectile_spawner.tscn" id="2_goo5i"]
+[ext_resource type="PackedScene" uid="uid://dkloukb241u3m" path="res://enemies/work/work_paperclips.tscn" id="3_eotuo"]
+[ext_resource type="SpriteFrames" uid="uid://bsp4fou2tyt1o" path="res://enemies/work/paperclips_sprite_frames.tres" id="4_p1qas"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goo5i"]
+radius = 56.0
+
+[node name="WorkTie" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_n8iwn")
+autoplay = "default"
+frame_progress = 0.75647
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_goo5i")
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("2_goo5i")]
+projectile_scene = ExtResource("3_eotuo")
+projectile_parent_path = NodePath("..")
+flash_point_sprite_frames = ExtResource("4_p1qas")
+delay_projectile_after_flash = true
+spawner_type = 1
+min_spawn_time = 1.0
+max_spawn_time = 1.0
+
+[node name="FlashPoint" parent="ProjectileSpawner" index="0"]
+position = Vector2(30, 55)
+
+[node name="SpawnPoint" parent="ProjectileSpawner" index="1"]
+position = Vector2(20, 82)
+
+[node name="SpawnTimer" parent="ProjectileSpawner" index="2"]
+one_shot = true
+
+[editable path="ProjectileSpawner"]

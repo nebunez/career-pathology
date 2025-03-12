@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc4kqf0r1w7sb"]
+
+[ext_resource type="Script" uid="uid://b2wxwyab0arhi" path="res://enemies/bills/bill_spawner.gd" id="1_vkk0q"]
+[ext_resource type="PackedScene" uid="uid://cxrpwr3ieyn6b" path="res://enemies/bills/bill.tscn" id="2_gy6dm"]
+
+[node name="BillSpawner" type="Node2D"]
+script = ExtResource("1_vkk0q")
+bill_scene = ExtResource("2_gy6dm")

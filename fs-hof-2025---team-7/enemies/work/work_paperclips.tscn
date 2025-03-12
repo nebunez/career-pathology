@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkloukb241u3m"]
+
+[ext_resource type="Texture2D" uid="uid://boryge257m6u0" path="res://enemies/work/paperclip_projectile_atlas_texture.tres" id="1_wdj58"]
+[ext_resource type="Script" uid="uid://cw7ltb3ij4mgi" path="res://enemies/move_towards_player.gd" id="2_53j8p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53j8p"]
+radius = 14.0
+height = 45.0
+
+[node name="WorkPaperclips" type="Area2D"]
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wdj58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_53j8p")
+
+[node name="MoveTowardsPlayer" type="Node2D" parent="."]
+script = ExtResource("2_53j8p")

@@ -1,0 +1,55 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cu3gmathh2mo0"]
+
+[ext_resource type="Texture2D" uid="uid://bx7f26spdxsn2" path="res://enemies/work/tie_sheet.png" id="1_oucuy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oreik"]
+atlas = ExtResource("1_oucuy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_528ux"]
+atlas = ExtResource("1_oucuy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqw32"]
+atlas = ExtResource("1_oucuy")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc442"]
+atlas = ExtResource("1_oucuy")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy6bd"]
+atlas = ExtResource("1_oucuy")
+region = Rect2(512, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oreik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_528ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqw32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_528ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oreik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc442")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy6bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc442")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
