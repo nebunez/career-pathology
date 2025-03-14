@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkloukb241u3m"]
+[gd_scene load_steps=5 format=3 uid="uid://dkloukb241u3m"]
 
 [ext_resource type="Texture2D" uid="uid://boryge257m6u0" path="res://enemies/work/paperclip_projectile_atlas_texture.tres" id="1_wdj58"]
-[ext_resource type="Script" uid="uid://cw7ltb3ij4mgi" path="res://enemies/move_towards_player.gd" id="2_53j8p"]
+[ext_resource type="Script" uid="uid://cw7ltb3ij4mgi" path="res://enemies/components/move_towards_player.gd" id="2_53j8p"]
+[ext_resource type="Script" uid="uid://b7ysygcppox4a" path="res://enemies/components/hit_player.gd" id="3_c5dgh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53j8p"]
 radius = 14.0
@@ -17,5 +18,10 @@ texture = ExtResource("1_wdj58")
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_53j8p")
 
-[node name="MoveTowardsPlayer" type="Node2D" parent="."]
+[node name="Components" type="Node2D" parent="."]
+
+[node name="MoveTowardsPlayer" type="Node2D" parent="Components"]
 script = ExtResource("2_53j8p")
+
+[node name="HitPlayer" type="Node2D" parent="Components"]
+script = ExtResource("3_c5dgh")

@@ -10,7 +10,8 @@ extends RigidBody2D
 @export var WALK_MAX_VELOCITY: float = 140.0
 @export var AIR_ACCEL: float = 100.0
 @export var AIR_DEACCEL: float = 100.0
-@export var JUMP_VELOCITY: int = 380
+@export var JUMP_FORCE: float = 1500.0
+@export var JUMP_PENALTY_FORCE: float = 500.0
 @export var STOP_JUMP_FORCE: float = 450.0
 @export var MAX_SHOOT_POSE_TIME: float = 0.3
 @export var MAX_FLOOR_AIRBORNE_TIME: float = 0.15
@@ -20,6 +21,8 @@ var siding_left: bool = false
 var jumping: bool = false
 var stopping_jump: bool = false
 var shooting: bool = false
+var has_jump_penalty: bool = false
+var first_physics_frame_with_jump_penalty: bool = false
 
 var floor_h_velocity: float = 0.0
 
@@ -33,6 +36,7 @@ var shoot_time: float = 1e20
 #@onready var animation_player = $AnimationPlayer
 #@onready var bullet_shoot = $BulletShoot
 
+@onready var _jump_penalty_timer: Timer = %JumpPenaltyTimer
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var new_velocity: Vector2 = state.get_linear_velocity()
@@ -75,7 +79,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 	# Process jump.
 	if jumping:
-		if new_velocity.y > 0:
+		if first_physics_frame_with_jump_penalty and new_velocity.y < 0:
+			new_velocity.y -= new_velocity.y
+		elif new_velocity.y > 0:
 			# Set off the jumping flag if going down.
 			jumping = false
 		elif not jump:
@@ -101,7 +107,13 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 		# Check jump.
 		if not jumping and jump:
-			new_velocity.y = -JUMP_VELOCITY
+			var actual_jump_velocity := (
+				JUMP_FORCE - JUMP_PENALTY_FORCE
+				if has_jump_penalty
+				else JUMP_FORCE
+			)
+			print(actual_jump_velocity)
+			new_velocity.y = -actual_jump_velocity
 			jumping = true
 			stopping_jump = false
 #			sound_jump.play()
@@ -173,10 +185,18 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	new_velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(new_velocity)
 
+	first_physics_frame_with_jump_penalty = false
+
 
 func apply_jump_penalty() -> void:
-	GameState.age_multiplier = GameState.age_multiplier + 0.2
+	has_jump_penalty = true
+	first_physics_frame_with_jump_penalty = true
+	_jump_penalty_timer.start()
 
 
 func collect_pickup(career_path: GameState.CareerPath):
 	GameState.increment_skill(career_path)
+
+
+func _on_jump_penalty_timer_timeout() -> void:
+	has_jump_penalty = false

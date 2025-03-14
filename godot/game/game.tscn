@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character/player_character.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://world/clouds/cloud.tscn" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bills/bill_spawner.tscn" id="3_ryrav"]
-[ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/FS_Arch.png" id="4_eow3j"]
+[ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/decorations/FS_Arch.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://tv15jupkugkx" path="res://pickups/pickup.tscn" id="4_u5opy"]
 [ext_resource type="PackedScene" uid="uid://cbdym1pr4p76r" path="res://enemies/work/work_tie.tscn" id="7_l8g03"]
-[ext_resource type="Texture2D" uid="uid://sg6e8dk4sy6o" path="res://world/tree.png" id="7_y36n6"]
+[ext_resource type="Texture2D" uid="uid://sg6e8dk4sy6o" path="res://world/decorations/tree.png" id="7_y36n6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuxd4"]
 friction = 0.2
@@ -30,7 +30,6 @@ WALK_ACCEL = 1000.0
 WALK_MAX_VELOCITY = 1000.0
 AIR_ACCEL = 1000.0
 AIR_DEACCEL = 1000.0
-JUMP_VELOCITY = 1500
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 limit_bottom = 0

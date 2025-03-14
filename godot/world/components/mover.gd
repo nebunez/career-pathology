@@ -42,7 +42,7 @@ var _end_range_position: Vector2
 var _current_direction: Direction
 var _stop_moving: bool = false
 
-@onready var _target: Node2D = self.get_parent()
+@onready var _target: Node2D = self.owner
 
 # Overrides
 ########################################

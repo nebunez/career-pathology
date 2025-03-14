@@ -8,7 +8,7 @@ const PLAYER_CHARACTER_GROUP_NAME := &"Player Character"
 var _player_character: PlayerCharacter
 var _velocity: Vector2
 
-@onready var target: Node2D = self.get_parent()
+@onready var target: Node2D = self.owner
 
 
 func _ready() -> void:

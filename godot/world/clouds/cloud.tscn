@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://420ehburaqq1"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc601k41n1fdr" path="res://world/clouds/cloud_sprite_frames.tres" id="1_4rphk"]
-[ext_resource type="Script" uid="uid://cn4mji4y7tut6" path="res://world/mover.gd" id="2_b3oxr"]
+[ext_resource type="Script" uid="uid://cn4mji4y7tut6" path="res://world/components/mover.gd" id="2_b3oxr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4rphk"]
 

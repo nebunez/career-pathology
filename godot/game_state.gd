@@ -62,6 +62,7 @@ static func set_game_over(value: bool) -> void:
 	is_game_over = value
 	EventBus.game_over_changed.emit()
 
+
 static func set_is_victory(value: bool) -> void:
 	is_victory = value
 	EventBus.is_victory_changed.emit()
