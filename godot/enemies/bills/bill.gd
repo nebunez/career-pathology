@@ -31,7 +31,7 @@ func _on_delete_timer_timeout() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	# Check if collided with player
 	if body is PlayerCharacter:
-		body.apply_jump_penalty()
+		body.on_projectile_hit(HitPlayer.OnHitEffect.JUMP_PENALTY)
 
 	# Queue free in any case (when hitting any body)
 	queue_free()

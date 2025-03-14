@@ -7,6 +7,8 @@ const BASE_SKILL_VALUE: float = 5.0
 const BASE_SELECTED_SKILL_VALUE: float = 15.0
 const BASE_SKILL_INCREMENT_VALUE: float = 5.0
 const BASE_AGE_INCREMENT_VALUE: float = 0.6
+const BASE_AGE_MULTIPLIER: float = 1.0
+const AGE_ACCELERATION_AMOUNT: float = 0.2
 
 # Game State
 ####################
@@ -19,7 +21,7 @@ static var is_victory: bool = false
 
 static var chosen_path: CareerPath
 static var age: float = 0.0
-static var age_multiplier: float = 1.0
+static var age_multiplier: float = BASE_AGE_MULTIPLIER
 static var skills := {
 	CareerPath.ART: BASE_SKILL_VALUE,
 	CareerPath.BUSINESS: BASE_SKILL_VALUE,
@@ -45,6 +47,10 @@ static func increment_age() -> void:
 	var amount := BASE_AGE_INCREMENT_VALUE * age_multiplier
 	age = age + amount
 	EventBus.age_changed.emit()
+
+
+static func accelerate_age() -> void:
+	age_multiplier += AGE_ACCELERATION_AMOUNT
 
 
 static func increment_skill(career_path: CareerPath) -> void:

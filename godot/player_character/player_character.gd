@@ -22,6 +22,7 @@ var jumping: bool = false
 var stopping_jump: bool = false
 var shooting: bool = false
 var has_jump_penalty: bool = false
+var is_stunned: bool = false
 var first_physics_frame_with_jump_penalty: bool = false
 
 var floor_h_velocity: float = 0.0
@@ -39,6 +40,9 @@ var shoot_time: float = 1e20
 @onready var _jump_penalty_timer: Timer = %JumpPenaltyTimer
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	if is_stunned:
+		return
+
 	var new_velocity: Vector2 = state.get_linear_velocity()
 	var step: float = state.get_step()
 
@@ -188,14 +192,30 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	first_physics_frame_with_jump_penalty = false
 
 
-func apply_jump_penalty() -> void:
+func collect_pickup(career_path: GameState.CareerPath) -> void:
+	GameState.increment_skill(career_path)
+
+
+func on_projectile_hit(effect: HitPlayer.OnHitEffect) -> void:
+	match effect:
+		HitPlayer.OnHitEffect.JUMP_PENALTY:
+			_apply_jump_penalty()
+		HitPlayer.OnHitEffect.STUN:
+			pass
+		HitPlayer.OnHitEffect.ACCELERATE_AGE:
+			_accelerate_age()
+		_:
+			push_error("Unknown OnHitEffect: %s" % effect)
+
+
+func _apply_jump_penalty() -> void:
 	has_jump_penalty = true
 	first_physics_frame_with_jump_penalty = true
 	_jump_penalty_timer.start()
 
 
-func collect_pickup(career_path: GameState.CareerPath):
-	GameState.increment_skill(career_path)
+func _accelerate_age() -> void:
+	GameState.accelerate_age()
 
 
 func _on_jump_penalty_timer_timeout() -> void:

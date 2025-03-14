@@ -24,8 +24,8 @@ projectile_parent_path = NodePath("..")
 flash_point_sprite_frames = ExtResource("4_p1qas")
 delay_projectile_after_flash = true
 spawner_type = 1
-min_spawn_time = 1.0
-max_spawn_time = 1.0
+min_spawn_time = 5.0
+max_spawn_time = 5.0
 
 [node name="FlashPoint" parent="ProjectileSpawner" index="0"]
 position = Vector2(30, 55)

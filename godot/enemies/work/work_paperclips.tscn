@@ -25,3 +25,6 @@ script = ExtResource("2_53j8p")
 
 [node name="HitPlayer" type="Node2D" parent="Components"]
 script = ExtResource("3_c5dgh")
+on_hit_effect = 2
+
+[connection signal="body_entered" from="." to="Components/HitPlayer" method="target_on_body_entered"]
