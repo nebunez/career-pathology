@@ -15,6 +15,9 @@ extends RigidBody2D
 @export var STOP_JUMP_FORCE: float = 450.0
 @export var MAX_SHOOT_POSE_TIME: float = 0.3
 @export var MAX_FLOOR_AIRBORNE_TIME: float = 0.15
+@export var ON_HIT_FLASH_RATE: float = 0.05
+@export var ON_HIT_FLASH_COLOR: Color = Color.RED
+@export var ON_HIT_NUMBER_OF_FLASHES: int = 2
 
 var anim: String = ""
 var siding_left: bool = false
@@ -37,7 +40,9 @@ var shoot_time: float = 1e20
 #@onready var animation_player = $AnimationPlayer
 #@onready var bullet_shoot = $BulletShoot
 
+@onready var _sprite: Sprite2D = %Sprite
 @onready var _jump_penalty_timer: Timer = %JumpPenaltyTimer
+
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if is_stunned:
@@ -112,9 +117,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		# Check jump.
 		if not jumping and jump:
 			var actual_jump_velocity := (
-				JUMP_FORCE - JUMP_PENALTY_FORCE
-				if has_jump_penalty
-				else JUMP_FORCE
+				JUMP_FORCE - JUMP_PENALTY_FORCE if has_jump_penalty else JUMP_FORCE
 			)
 			print(actual_jump_velocity)
 			new_velocity.y = -actual_jump_velocity
@@ -197,6 +200,7 @@ func collect_pickup(career_path: GameState.CareerPath) -> void:
 
 
 func on_projectile_hit(effect: HitPlayer.OnHitEffect) -> void:
+	_display_hit_feedback()
 	match effect:
 		HitPlayer.OnHitEffect.JUMP_PENALTY:
 			_apply_jump_penalty()
@@ -206,6 +210,13 @@ func on_projectile_hit(effect: HitPlayer.OnHitEffect) -> void:
 			_accelerate_age()
 		_:
 			push_error("Unknown OnHitEffect: %s" % effect)
+
+
+func _display_hit_feedback() -> void:
+	var tween := self.create_tween()
+	for _i: int in ON_HIT_NUMBER_OF_FLASHES:
+		tween.tween_property(_sprite, "modulate", ON_HIT_FLASH_COLOR, ON_HIT_FLASH_RATE)
+		tween.tween_property(_sprite, "modulate", Color.WHITE, ON_HIT_FLASH_RATE)
 
 
 func _apply_jump_penalty() -> void:

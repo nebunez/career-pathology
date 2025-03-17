@@ -17,7 +17,8 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_5up26")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("2_1ty04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
