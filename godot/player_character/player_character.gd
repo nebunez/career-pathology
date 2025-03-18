@@ -133,7 +133,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 			var actual_jump_velocity := (
 				JUMP_FORCE - JUMP_PENALTY_FORCE if has_jump_penalty else JUMP_FORCE
 			)
-			print(actual_jump_velocity)
 			new_velocity.y = -actual_jump_velocity
 			jumping = true
 			stopping_jump = false
