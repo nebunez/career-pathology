@@ -42,6 +42,20 @@ var shoot_time: float = 1e20
 
 @onready var _sprite: Sprite2D = %Sprite
 @onready var _jump_penalty_timer: Timer = %JumpPenaltyTimer
+@onready var _jump_penalty_progress_bar: ProgressBar = %JumpPenaltyProgressBar
+
+# Overrides
+########################################
+
+
+func _ready() -> void:
+	_jump_penalty_progress_bar.min_value = 0
+	_jump_penalty_progress_bar.max_value = _jump_penalty_timer.wait_time
+
+
+func _process(_delta: float) -> void:
+	if has_jump_penalty:
+		_jump_penalty_progress_bar.value = _jump_penalty_timer.time_left
 
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
@@ -195,6 +209,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	first_physics_frame_with_jump_penalty = false
 
 
+# Methods
+########################################
+
+
 func collect_pickup(career_path: GameState.CareerPath) -> void:
 	GameState.increment_skill(career_path)
 
@@ -222,6 +240,7 @@ func _display_hit_feedback() -> void:
 func _apply_jump_penalty() -> void:
 	has_jump_penalty = true
 	first_physics_frame_with_jump_penalty = true
+	_jump_penalty_progress_bar.visible = true
 	_jump_penalty_timer.start()
 
 
@@ -229,5 +248,10 @@ func _accelerate_age() -> void:
 	GameState.accelerate_age()
 
 
+# Signal Connections
+####################
+
+
 func _on_jump_penalty_timer_timeout() -> void:
 	has_jump_penalty = false
+	_jump_penalty_progress_bar.visible = false

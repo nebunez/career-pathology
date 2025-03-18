@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d26acnrtv8nu7"]
+[gd_scene load_steps=6 format=3 uid="uid://d26acnrtv8nu7"]
 
 [ext_resource type="Script" uid="uid://cl481xfr2k7gu" path="res://player_character/player_character.gd" id="1_5up26"]
 [ext_resource type="Texture2D" uid="uid://c1eo18nl8beig" path="res://player_character/player_character.png" id="2_1ty04"]
+[ext_resource type="Theme" uid="uid://ithwym1y6fyq" path="res://hud_theme.tres" id="3_5l2xy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5up26"]
 friction = 0.2
@@ -28,5 +29,24 @@ shape = SubResource("CapsuleShape2D_5up26")
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
+
+[node name="JumpPenaltyProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme = ExtResource("3_5l2xy")
+value = 50.0
+fill_mode = 3
+show_percentage = false
 
 [connection signal="timeout" from="JumpPenaltyTimer" to="." method="_on_jump_penalty_timer_timeout"]
