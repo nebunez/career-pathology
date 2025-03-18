@@ -6,6 +6,7 @@ enum CareerPath { ART, BUSINESS, GAMING, MUSIC, WRITING }
 const BASE_SKILL_VALUE: float = 5.0
 const BASE_SELECTED_SKILL_VALUE: float = 15.0
 const BASE_SKILL_INCREMENT_VALUE: float = 5.0
+## Amount to increment age per second
 const BASE_AGE_INCREMENT_VALUE: float = 0.6
 const BASE_AGE_MULTIPLIER: float = 1.0
 const AGE_ACCELERATION_AMOUNT: float = 0.2
@@ -43,10 +44,13 @@ static func reset() -> void:
 	_reset_skills()
 
 
-static func increment_age() -> void:
-	var amount := BASE_AGE_INCREMENT_VALUE * age_multiplier
+## Increment age each frame.
+##
+## This function is meant to be called each frame, with [member delta] being the time since last
+## frame.
+static func increment_age(delta: float) -> void:
+	var amount := (BASE_AGE_INCREMENT_VALUE * delta) * age_multiplier
 	age = age + amount
-	EventBus.age_changed.emit()
 
 
 static func accelerate_age() -> void:

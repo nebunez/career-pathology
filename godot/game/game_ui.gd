@@ -15,10 +15,12 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	EventBus.age_changed.connect(_on_age_changed)
 	EventBus.skill_changed.connect(_on_skill_changed)
 	EventBus.game_over_changed.connect(_on_game_over_changed)
 
+
+func _process(_delta: float) -> void:
+	_age_value.value = GameState.age
 
 # Methods
 ########################################
@@ -51,10 +53,6 @@ func _update_skill_text(career_path: GameState.CareerPath) -> void:
 
 # Signal Connections
 ####################
-
-
-func _on_age_changed() -> void:
-	_age_value.value = GameState.age
 
 
 func _on_skill_changed(career_path: GameState.CareerPath) -> void:

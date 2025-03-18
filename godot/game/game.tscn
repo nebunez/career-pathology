@@ -117,9 +117,6 @@ offset = Vector2(0, -265)
 
 [node name="GameUi" parent="." instance=ExtResource("1_dxrkv")]
 
-[node name="AgeTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_fc0e3")]
@@ -383,8 +380,6 @@ position = Vector2(-426, -415)
 [node name="TheArch" type="Sprite2D" parent="."]
 position = Vector2(0, -350)
 texture = ExtResource("4_eow3j")
-
-[connection signal="timeout" from="AgeTimer" to="." method="_on_age_timer_timeout"]
 
 [editable path="Clouds/Cloud"]
 [editable path="Clouds/Cloud2"]
