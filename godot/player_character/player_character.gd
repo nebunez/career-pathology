@@ -43,6 +43,8 @@ var shoot_time: float = 1e20
 @onready var _sprite: Sprite2D = %Sprite
 @onready var _jump_penalty_timer: Timer = %JumpPenaltyTimer
 @onready var _jump_penalty_progress_bar: ProgressBar = %JumpPenaltyProgressBar
+@onready var _stun_timer: Timer = %StunTimer
+@onready var _stun_progress_bar: ProgressBar = %StunProgressBar
 
 # Overrides
 ########################################
@@ -59,9 +61,6 @@ func _process(_delta: float) -> void:
 
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	if is_stunned:
-		return
-
 	var new_velocity: Vector2 = state.get_linear_velocity()
 	var step: float = state.get_step()
 
@@ -69,10 +68,15 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var new_siding_left: bool = siding_left
 
 	# get the input
-	var move_left: bool = Input.is_action_pressed("move_left")
-	var move_right: bool = Input.is_action_pressed("move_right")
-	var jump: bool = Input.is_action_pressed("jump")
-	var shoot: bool = Input.is_action_pressed("shoot")
+	var move_left: bool
+	var move_right: bool
+	var jump: bool
+	var shoot: bool
+	if not self.is_stunned:
+		move_left= Input.is_action_pressed("move_left")
+		move_right = Input.is_action_pressed("move_right")
+		jump = Input.is_action_pressed("jump")
+		shoot = Input.is_action_pressed("shoot")
 
 	# Deapply prev floor velocity.
 	new_velocity.x -= floor_h_velocity
@@ -222,7 +226,7 @@ func on_projectile_hit(effect: HitPlayer.OnHitEffect) -> void:
 		HitPlayer.OnHitEffect.JUMP_PENALTY:
 			_apply_jump_penalty()
 		HitPlayer.OnHitEffect.STUN:
-			pass
+			_apply_stun()
 		HitPlayer.OnHitEffect.ACCELERATE_AGE:
 			_accelerate_age()
 		_:
@@ -243,6 +247,12 @@ func _apply_jump_penalty() -> void:
 	_jump_penalty_timer.start()
 
 
+func _apply_stun() -> void:
+	self.is_stunned = true
+	_stun_progress_bar.visible = true
+	_stun_timer.start()
+
+
 func _accelerate_age() -> void:
 	GameState.accelerate_age()
 
@@ -254,3 +264,8 @@ func _accelerate_age() -> void:
 func _on_jump_penalty_timer_timeout() -> void:
 	has_jump_penalty = false
 	_jump_penalty_progress_bar.visible = false
+
+
+func _on_stun_timer_timeout() -> void:
+	self.is_stunned = false
+	_stun_progress_bar.visible = false

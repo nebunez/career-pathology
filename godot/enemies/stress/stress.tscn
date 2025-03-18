@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://de76mvsdbaonn"]
+
+[ext_resource type="Script" uid="uid://b7ysygcppox4a" path="res://enemies/components/hit_player.gd" id="1_tackc"]
+
+[sub_resource type="Gradient" id="Gradient_a7h1v"]
+colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tackc"]
+gradient = SubResource("Gradient_a7h1v")
+width = 496
+height = 128
+fill = 2
+fill_from = Vector2(0.485801, 1)
+fill_to = Vector2(0.478493, 0.492098)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7h1v"]
+size = Vector2(496, 128)
+
+[node name="Stress" type="Area2D"]
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_tackc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a7h1v")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="HitPlayer" type="Node2D" parent="Components"]
+script = ExtResource("1_tackc")
+on_hit_effect = 1
+metadata/_custom_type_script = "uid://b7ysygcppox4a"
+
+[connection signal="body_entered" from="." to="Components/HitPlayer" method="target_on_body_entered"]

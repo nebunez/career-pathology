@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cniwlsibop00s"]
+[gd_scene load_steps=15 format=3 uid="uid://cniwlsibop00s"]
 
 [ext_resource type="Script" uid="uid://ceygn28uo7lc6" path="res://game/game.gd" id="1_dakft"]
 [ext_resource type="PackedScene" uid="uid://cv4eodsu1puwv" path="res://game/game_ui.tscn" id="1_dxrkv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://tv15jupkugkx" path="res://pickups/pickup.tscn" id="4_u5opy"]
 [ext_resource type="PackedScene" uid="uid://cbdym1pr4p76r" path="res://enemies/work/work_tie.tscn" id="7_l8g03"]
 [ext_resource type="Texture2D" uid="uid://sg6e8dk4sy6o" path="res://world/decorations/tree.png" id="7_y36n6"]
+[ext_resource type="PackedScene" uid="uid://de76mvsdbaonn" path="res://enemies/stress/stress.tscn" id="9_j8tme"]
 
 [sub_resource type="Gradient" id="Gradient_l8g03"]
 colors = PackedColorArray(0.436667, 0.35, 1, 1, 0.3185, 0.91, 0.91, 1)
@@ -373,6 +374,11 @@ max_speed = 400.0
 
 [node name="WorkTie" parent="Enemies/WorkTies" instance=ExtResource("7_l8g03")]
 position = Vector2(-426, -415)
+
+[node name="Stresses" type="Node2D" parent="Enemies"]
+
+[node name="Stress" parent="Enemies/Stresses" instance=ExtResource("9_j8tme")]
+position = Vector2(-1951, -389)
 
 [node name="TheArch" type="Sprite2D" parent="."]
 position = Vector2(0, -350)
