@@ -189,7 +189,7 @@ position = Vector2(-1633, -855)
 position = Vector2(-1065, -651)
 
 [node name="Pickup17" parent="Pickups" instance=ExtResource("4_u5opy")]
-position = Vector2(623, -1476)
+position = Vector2(594, -1531)
 
 [node name="Clouds" type="Node2D" parent="."]
 
@@ -375,10 +375,37 @@ max_spawn_time = 10.0
 min_speed = 200.0
 max_speed = 400.0
 
-[node name="WorkTies" type="Node2D" parent="Enemies"]
+[node name="Works" type="Node2D" parent="Enemies"]
 
-[node name="WorkTie" parent="Enemies/WorkTies" instance=ExtResource("7_l8g03")]
-position = Vector2(-426, -415)
+[node name="WorkTie" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(-2655, -1016)
+
+[node name="WorkTie2" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(-1573, -1748)
+
+[node name="WorkTie3" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(938, -887)
+
+[node name="WorkTie4" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(-538, -1632)
+
+[node name="WorkTie5" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(1782, -1357)
+
+[node name="WorkTie6" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(-2399, -2699)
+
+[node name="WorkTie7" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(-617, -2532)
+
+[node name="WorkTie8" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(1767, -2554)
+
+[node name="WorkTie9" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(56, -2900)
+
+[node name="WorkTie10" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
+position = Vector2(-664, -700)
 
 [node name="TheArch" type="Sprite2D" parent="."]
 position = Vector2(0, -350)
