@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bugpnas3xrcr0"]
+
+[ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character/player_character.tscn" id="1_rupst"]
+[ext_resource type="Texture2D" uid="uid://c8c4qt7vithm0" path="res://exports/career-pathology_web/index.apple-touch-icon.png" id="2_m8u5f"]
+[ext_resource type="Script" uid="uid://b2wxwyab0arhi" path="res://enemies/components/follow_player_position.gd" id="3_is3ju"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_edjgo"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_rupst")]
+position = Vector2(0, -111)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+limit_bottom = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_screen = false
+editor_draw_limits = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_edjgo")
+
+[node name="Test" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Test"]
+position = Vector2(208, -134)
+texture = ExtResource("2_m8u5f")
+
+[node name="FollowPlayerPosition" type="Node2D" parent="Test"]
+script = ExtResource("3_is3ju")
+metadata/_custom_type_script = "uid://b2wxwyab0arhi"

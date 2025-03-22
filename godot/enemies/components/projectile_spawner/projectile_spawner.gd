@@ -15,22 +15,19 @@ extends Node2D
 
 enum SpawnerType { TRIGGER, TIMER }
 
+@export var parent_group_name: StringName
 @export var projectile_scene: PackedScene
-@export var projectile_parent_path: NodePath
 @export var flash_point_sprite_frames: SpriteFrames
 @export var delay_projectile_after_flash: bool = false
 @export var spawner_type: SpawnerType
 ## Minimum spawn time (in seconds)
-@export_range(0.0, 10_000.0) var min_spawn_time: float
-## Maximum spawn time (in seconds)
-@export_range(0.0, 100_000.0) var max_spawn_time: float
+@export_range(0.0, 300.0) var min_spawn_time: float
+@export_range(0.0, 300.0) var spawn_time_range: float
 
+var _target: Node2D
 var _timer_is_random: bool = false
 var _use_flash_point: bool = false
 
-@onready var _projectile_parent: Node2D = (
-	self.get_node(self.projectile_parent_path) if self.projectile_parent_path != null else null
-)
 @onready var _flash_point_animated_sprite_2d: AnimatedSprite2D = %FlashPointAnimatedSprite2D
 @onready var _spawn_point: Node2D = %SpawnPoint
 @onready var _spawn_timer: Timer = %SpawnTimer
@@ -40,7 +37,7 @@ var _use_flash_point: bool = false
 
 
 func _ready() -> void:
-	_ensure_correct_spawn_times()
+	_init_target()
 	_init_timer()
 	_init_flash_point()
 
@@ -58,13 +55,15 @@ func start_spawn_projectile() -> void:
 		_spawn_projectile()
 
 
-func _ensure_correct_spawn_times() -> void:
-	# I tried to puth these two checks in their own respective setters, but it did not work.
-	if self.min_spawn_time > self.max_spawn_time:
-		self.min_spawn_time = self.max_spawn_time
-
-	if self.max_spawn_time < self.min_spawn_time:
-		max_spawn_time = self.min_spawn_time
+func _init_target() -> void:
+	if (
+		parent_group_name == null
+		or parent_group_name.is_empty()
+		or self.get_tree().get_node_count_in_group(parent_group_name) == 0
+	):
+		_target = self.owner
+	else:
+		_target = self.get_tree().get_first_node_in_group(parent_group_name)
 
 
 func _init_timer() -> void:
@@ -75,8 +74,7 @@ func _init_timer() -> void:
 	_spawn_timer.autostart = false
 	_spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 
-	if self.min_spawn_time != self.max_spawn_time:
-		randomize()
+	if self.spawn_time_range > 0.0:
 		_timer_is_random = true
 
 	_start_timer()
@@ -98,7 +96,8 @@ func _init_flash_point() -> void:
 func _start_timer() -> void:
 	var wait_time: float
 	if _timer_is_random:
-		wait_time = randf_range(self.min_spawn_time, self.max_spawn_time)
+		var max_range := self.min_spawn_time + self.spawn_time_range
+		wait_time = randf_range(self.min_spawn_time, max_range)
 	else:
 		wait_time = self.min_spawn_time
 
@@ -108,9 +107,8 @@ func _start_timer() -> void:
 
 func _spawn_projectile() -> void:
 	var projectile = self.projectile_scene.instantiate() as Node2D
-	projectile.position = _spawn_point.position
-
-	_projectile_parent.add_child(projectile)
+	_target.add_child(projectile)
+	projectile.global_position = _spawn_point.global_position
 
 
 # Signal Connections

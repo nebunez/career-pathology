@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cv4eodsu1puwv" path="res://game/game_ui.tscn" id="1_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://d26acnrtv8nu7" path="res://player_character/player_character.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://420ehburaqq1" path="res://world/clouds/cloud.tscn" id="2_7jktm"]
-[ext_resource type="PackedScene" uid="uid://bc4kqf0r1w7sb" path="res://enemies/bills/bill_spawner.tscn" id="3_ryrav"]
+[ext_resource type="PackedScene" uid="uid://70c07m8wjno5" path="res://enemies/bills/bill_spawner.tscn" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://dpdp6jrlbddyi" path="res://world/decorations/FS_Arch.png" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://tv15jupkugkx" path="res://pickups/pickup.tscn" id="4_u5opy"]
 [ext_resource type="PackedScene" uid="uid://cbdym1pr4p76r" path="res://enemies/work/work_tie.tscn" id="7_l8g03"]
@@ -133,6 +133,7 @@ editor_draw_screen = false
 editor_draw_limits = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_xuxd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
@@ -357,23 +358,13 @@ move_speed = 50.0
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Bills" type="Node2D" parent="Enemies"]
+[node name="Bills" type="Node2D" parent="Enemies" groups=["Bills"]]
 
 [node name="BillSpawner" parent="Enemies/Bills" instance=ExtResource("3_ryrav")]
 position = Vector2(-885, -522)
-player_path = NodePath("../../../PlayerCharacter")
-min_spawn_time = 3.0
-max_spawn_time = 10.0
-min_speed = 200.0
-max_speed = 400.0
 
 [node name="BillSpawner2" parent="Enemies/Bills" instance=ExtResource("3_ryrav")]
 position = Vector2(748, -834)
-player_path = NodePath("../../../PlayerCharacter")
-min_spawn_time = 3.0
-max_spawn_time = 10.0
-min_speed = 200.0
-max_speed = 400.0
 
 [node name="Works" type="Node2D" parent="Enemies"]
 
@@ -405,7 +396,7 @@ position = Vector2(1767, -2554)
 position = Vector2(56, -2900)
 
 [node name="WorkTie10" parent="Enemies/Works" instance=ExtResource("7_l8g03")]
-position = Vector2(-664, -700)
+position = Vector2(-588, -789)
 
 [node name="TheArch" type="Sprite2D" parent="."]
 position = Vector2(0, -350)

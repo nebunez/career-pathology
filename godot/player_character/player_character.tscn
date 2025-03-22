@@ -8,10 +8,11 @@
 friction = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5up26"]
-radius = 24.0
-height = 128.0
+radius = 20.0
+height = 118.0
 
 [node name="PlayerCharacter" type="RigidBody2D" groups=["Player Character"]]
+collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_5up26")
 lock_rotation = true
 contact_monitor = true
@@ -23,6 +24,7 @@ unique_name_in_owner = true
 texture = ExtResource("2_1ty04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_5up26")
 
 [node name="JumpPenaltyTimer" type="Timer" parent="."]

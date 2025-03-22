@@ -9,7 +9,11 @@ enum OnHitEffect { JUMP_PENALTY, STUN, ACCELERATE_AGE }
 @onready var _target: Area2D = self.owner
 
 
-func target_on_body_entered(body: Node2D) -> void:
+func _ready() -> void:
+	_target.body_entered.connect(_target_on_body_entered)
+
+
+func _target_on_body_entered(body: Node2D) -> void:
 	if body is PlayerCharacter:
 		body.on_projectile_hit(self.on_hit_effect)
 

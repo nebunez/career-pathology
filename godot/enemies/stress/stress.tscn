@@ -17,7 +17,7 @@ fill_to = Vector2(0.478493, 0.492098)
 size = Vector2(496, 128)
 
 [node name="Stress" type="Area2D"]
-collision_mask = 4
+collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_tackc")
@@ -31,5 +31,3 @@ shape = SubResource("RectangleShape2D_a7h1v")
 script = ExtResource("1_tackc")
 on_hit_effect = 1
 metadata/_custom_type_script = "uid://b7ysygcppox4a"
-
-[connection signal="body_entered" from="." to="Components/HitPlayer" method="target_on_body_entered"]

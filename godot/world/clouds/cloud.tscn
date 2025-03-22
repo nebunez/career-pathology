@@ -10,6 +10,7 @@
 size = Vector2(489, 82)
 
 [node name="Cloud" type="RigidBody2D"]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_4rphk")
 gravity_scale = 0.0
 freeze = true

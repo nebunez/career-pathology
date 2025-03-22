@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxrpwr3ieyn6b"]
+[gd_scene load_steps=6 format=3 uid="uid://cxrpwr3ieyn6b"]
 
-[ext_resource type="Script" uid="uid://dd1xq3s25y8ev" path="res://enemies/bills/bill.gd" id="1_o08ph"]
 [ext_resource type="SpriteFrames" uid="uid://dqc0oft3s50hn" path="res://enemies/bills/bills_sprite_frames.tres" id="2_j0bnq"]
+[ext_resource type="Script" uid="uid://cw7ltb3ij4mgi" path="res://enemies/components/move_towards_player.gd" id="2_jfdeg"]
+[ext_resource type="Script" uid="uid://b7ysygcppox4a" path="res://enemies/components/hit_player.gd" id="3_3dnmf"]
+[ext_resource type="Script" uid="uid://dpypha30vuf1d" path="res://enemies/components/autodestruct.gd" id="4_sp42m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o08ph"]
 size = Vector2(64, 64)
 
 [node name="Bill" type="Area2D"]
-collision_mask = 4
-script = ExtResource("1_o08ph")
+collision_layer = 8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_j0bnq")
@@ -16,3 +17,20 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o08ph")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="MoveTowardsPlayer" type="Node2D" parent="Components"]
+script = ExtResource("2_jfdeg")
+min_speed = 100.0
+speed_range = 400.0
+metadata/_custom_type_script = "uid://cw7ltb3ij4mgi"
+
+[node name="HitPlayer" type="Node2D" parent="Components"]
+script = ExtResource("3_3dnmf")
+destroy_on_hit = true
+metadata/_custom_type_script = "uid://b7ysygcppox4a"
+
+[node name="Autodestruct" type="Node2D" parent="Components"]
+script = ExtResource("4_sp42m")
+metadata/_custom_type_script = "uid://dpypha30vuf1d"

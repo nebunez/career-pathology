@@ -29,6 +29,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 "Player Character"="A group which only contains the player character"
+Bills="A group for the parent of Bill projectiles"
 
 [input]
 
@@ -58,7 +59,10 @@ shoot={
 
 [layer_names]
 
-2d_physics/layer_1="Layer 1"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="World"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Enemy Projectile"
 
 [rendering]
 
